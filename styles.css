@@ -1,150 +1,193 @@
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-body{
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    background: black;
-    font-family: Cochin, Georgia;
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: black;
+  font-family: Cochin, Georgia;
 }
 
-.video-container{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.video-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.video-container video{
-    width: 100%;
-    height: 100%;
+.video-container video {
+  width: 100%;
+  height: 100%;
 }
 
-.video-container .ctrls-container{
-    position: fixed;
-    bottom: 0px;
-    width: 100%;
-    padding: 2vmin;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.9));
-    transition: all .5s ease-in-out;
+.video-container .ctrls-container {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  padding: 2vmin;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.9));
+  transition: all 0.5s ease-in-out;
 }
 
-.video-container .progress-ctrls{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: burlywood;
+.video-container .progress-ctrls {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: burlywood;
+  margin: 0 10px;
 }
 
-.video-container .progress-ctrls .time-left{
-    
-    margin: .5vw;
+.video-container .progress-ctrls .time-left {
+    margin: 0.5vw;
+    margin-right: 60px;
     width: 4vw;
 }
 
-.video-container .progress-ctrls .progress-bar{
-    width: 92vw;
-    height: 0.3vw;
-    max-height: 5px;
-    background: goldenrod;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
+.video-container .progress-ctrls .progress-bar {
+  width: 90%;
+  height: 0.3vw;
+  max-height: 5px;
+  margin: 0 15px;
+  background: goldenrod;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
 
-.video-container .progress-ctrls .progress-bar .progress{
+.video-container .progress-ctrls .progress-bar .progress {
+  height: 110%;
+  width: 20%;
+}
+
+.video-container .progress-ctrls .progress-bar .seeker {
+  height: 1vw;
+  width: 1vw;
+  max-width: 30px;
+  max-height: 30px;
+  border-radius: 50%;
+  transform: translateX(-40%);
+}
+
+.video-container .progress-ctrls .progress-bar .progress,
+.video-container .progress-ctrls .progress-bar .seeker {
+  background: purple;
+  display: inline-block;
+  transition: all 0.3s ease-in-out;
+}
+
+.video-container .controls {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.video-container .controls button {
+  background: none;
+  outline: none;
+  box-shadow: none;
+  border: none;
+  width: 5vw;
+  height: 5vw;
+  min-width: 30px;
+  min-height: 30px;
+  margin: 0px 3px;
+  cursor: pointer;
+  opacity: 0.5;
+  transform: scale(0.8);
+  transition: all 0.3s ease-in-out;
+}
+
+.video-container .controls button:hover {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+.video-container .controls button svg {
+  width: 32;
+  height: 32;
+  fill: purple;
+  stroke: goldenrod;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.video-container .controls .title {
+  font-size: 2vw;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.video-container .controls .title .author {
+  color: burlywood;
+  font-weight: bold;
+  font-size: 0.75em;
+  margin-left: 10px;
+}
+
+.video-container .controls .title .playlistName {
+  color: whitesmoke;
+  font-size: 0.70em;
+  padding-left: 1vw;
+  width: 60%;
+}
+
+.video-container .controls button.captions svg {
+  transform: rotateY(180deg);
+}
+
+@media only screen and (max-width: 520px) {
+  .video-container .progress-ctrls {
+    margin-bottom: 20px;
+  }
+
+  .video-container .progress-ctrls .time-left {
+    margin: 0.5vw;
+    margin-right: 80px;
+    width: 4vw;
+  }
+  .video-container .progress-ctrls .progress-bar {
+    width: 80%;
+    height: 0.5vw;
+    max-height: 5px;
+  }
+
+  .video-container .progress-ctrls .progress-bar .progress {
     height: 110%;
     width: 20%;
-}
+  }
 
-.video-container .progress-ctrls .progress-bar .seeker{
+  .video-container .progress-ctrls .progress-bar .seeker {
     height: 1vw;
     width: 1vw;
     max-width: 30px;
     max-height: 30px;
-    border-radius: 50%;
-    transform: translateX(-40%);
-}
+  }
 
-.video-container .progress-ctrls .progress-bar .progress,
-.video-container .progress-ctrls .progress-bar .seeker{
-    background: purple;
-    display: inline-block;
-    transition: all .3s ease-in-out;
-}
-
-.video-container .controls{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.video-container .controls button{
-    background: none;
-    outline: none;
-    box-shadow: none;
-    border: none;
-    width: 5vw;
-    height: 5vw;
-    min-width: 30px;
-    min-height: 30px;
-    margin: 0px 1px;
-    cursor: pointer;
-    opacity: .5;
-    transform: scale(.8);
-    transition: all .3s ease-in-out;
-}
-
-.video-container .controls button:hover{
-    opacity: 1;
-    transform: scale(1.2);
-}
-
-.video-container .controls button svg{
-    width: 32;
-    height: 32;
-    fill: purple;
-    stroke: goldenrod;
-    stroke-width: 2; 
-    stroke-linecap: round; 
-    stroke-linejoin: round; 
-} 
-
-.video-container .controls .title{
-    font-size: 2vw;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
-.video-container .controls .title .author{
-    color: burlywood;
-    font-weight: bold;
-    font-size: 1em;
-}
-
-.video-container .controls .title .name{
-    color: whitesmoke;
-    font-size: 0.75em;
-    padding-left: 1vw;
-}
-
-.video-container .controls button.captions svg{
-    transform: rotateY(180deg);
-}
-
-@media only screen and (max-width: 520px){
-    .video-container .controls .title{
-        display: none;
-    }
+  .video-container .controls .title {
+    display: none;
+  }
+  .video-container .controls .episodes {
+    display: none;
+  }
+  .video-container .controls .captions {
+    display: none;
+  }
+  .video-container .controls .fullscreen {
+    display: none;
+  }
+  .video-container .controls .chromecast {
+    display: none;
+  }
 }
